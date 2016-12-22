@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="./react.js"></script>
+    <script src="./react-dom.js"></script>
+    <script src="./browser.min.js"></script>
+    <script src="./test.js"></script>
+  </head>
+   <body>
+    <div id="example"></div>
+    <script type="text/babel">
+var LikeButton = React.createClass({
+  getInitialState: function() {
+    return {liked: false,log:""};
+  },
+  handleClick: function(event) {
+  	 var test = new Test();
+  	 var msg = test.test();
+
+    this.setState({liked: !this.state.liked,log:msg});
+  },
+  render: function() {
+    var text = this.state.log;
+    return (
+      <p onClick={this.handleClick}>
+         {text}. 
+      </p>
+    );
+  }
+});
+
+ReactDOM.render(
+  <LikeButton />,
+  document.getElementById('example')
+);
+    </script>
+  </body>
+</html>
